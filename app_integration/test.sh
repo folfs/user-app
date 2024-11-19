@@ -5,14 +5,14 @@
 BASE_URL=$(minikube service cust-api --url)
 
 # Check if the Minikube service URL is empty or invalid
-if [ -z "$BASE_URL" ]; then
+if [[ ! "$url" =~ ^(http|https) ]];  then
   echo
   echo
   echo "Failed to get the Minikube service URL. Please manually input the URL:"
   read -p "Enter API base URL (e.g., http://localhost:8080): " BASE_URL
 
   # Check if the input URL is still empty
-  if [ -z "$BASE_URL" ]; then
+  if [[ ! "$BASE_URL" =~ ^(http|https) ]]; then
     echo "Invalid input. Exiting script."
     exit 1
   fi
