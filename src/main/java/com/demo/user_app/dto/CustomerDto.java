@@ -2,8 +2,6 @@ package com.demo.user_app.dto;
 
 import java.util.UUID;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.validation.constraints.Size;

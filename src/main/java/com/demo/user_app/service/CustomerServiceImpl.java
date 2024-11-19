@@ -1,7 +1,5 @@
 package com.demo.user_app.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,14 +16,11 @@ import com.demo.user_app.error.CustServiceException;
 import com.demo.user_app.model.Customer;
 import com.demo.user_app.repository.CustomerRepository;
 import com.demo.user_app.util.EmailUtil;
-import com.google.gson.Gson;
 
 import io.micrometer.common.util.StringUtils;
-import io.micrometer.core.instrument.MeterRegistry;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private CustomerRepository customerRepository;
 

@@ -26,7 +26,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class CustomerIntegrationTest {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     public static final String CUSTOMER_API = "/api/customer";
 
     @Autowired

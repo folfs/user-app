@@ -1,19 +1,12 @@
 package com.demo.user_app.controller;
 
-import com.demo.user_app.util.UUIDUtil;
 import jakarta.validation.constraints.Max;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 import com.demo.user_app.dto.CustomerDto;
 import com.demo.user_app.dto.PageDto;
@@ -28,7 +21,6 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/api/customer")
 public class CustomerController {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private CustomerService customerService;
@@ -57,7 +49,6 @@ public class CustomerController {
     @Operation(summary = "Get the customer by ID")
     @GetMapping("/{id}")
     public ResponseEntity<CustomerDto> getCustomerById(@Valid @PathVariable UUID id) {
-        logger.info("getCustomerById() [{}]", id);
         return customerService.getCustomerById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));

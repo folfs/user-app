@@ -1,8 +1,6 @@
 package com.demo.user_app.dto;
 import com.demo.user_app.model.Customer;
 
-import java.util.UUID;
-
 public class CustDtoConverter {
     public static CustomerDto toDTO(Customer customer) {
         return new CustomerDto(

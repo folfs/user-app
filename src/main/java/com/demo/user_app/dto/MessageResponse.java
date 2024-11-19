@@ -1,7 +1,6 @@
 package com.demo.user_app.dto;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
