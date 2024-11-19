@@ -1,0 +1,39 @@
+name: CI/CD Pipeline for Customer API
+
+on:
+  pull_request:
+    branches:
+      - main  # pr to main
+  push:
+    branches:
+      - main  # push to main
+
+jobs:
+  build-and-test:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build and Test
+        run: mvn clean install
+
+  deploy:
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Make deploy script executable
+        run: chmod +x ./deploy-script.sh
+
+      - name: Deploy to production
+        run: ./deploy-script.sh

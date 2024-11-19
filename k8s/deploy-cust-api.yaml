@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: cust-api
+  name: cust-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cust-api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: cust-api
+    spec:
+      containers:
+      - image: cust-api
+        name: cust-api
+        imagePullPolicy: Never  # load the image to minikube image list
+        resources: {}
+status: {}
